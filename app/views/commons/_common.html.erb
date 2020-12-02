@@ -1,0 +1,27 @@
+<div class="col-ml-auto">
+<div class="box border mb-4 pl-3 pr-5">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong class="has text-white"><%= common.name %>: </strong>
+          <%= common.common %>
+          <small class= "has text-primary"><%= time_ago_in_words(common.created_at)%> ago</small>
+		<br/>
+        </p>
+      </div>
+    </div>
+
+    <% if has_role?(:admin) %>
+    
+    <a class="col-md-2 col-md-auto ">
+     <%= link_to 'Delete', [common.trade, common],
+     method: :delete, class: " pl-5 ml-5 btn btn-danger", data: { confirm: 'Are you sure?' } %>
+     </a>
+    <% end %>
+  </article>
+</div>
+
+
+
+

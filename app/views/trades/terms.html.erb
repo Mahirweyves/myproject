@@ -1,0 +1,30 @@
+<div class="ki-doc"><h1>About us</h1> <h2>Company Profile</h2> <p>Hangzhou Jiku Information Technology Co., Ltd. (referred to as KiKUU) was founded in 2015, it was original born in Africa, and that's why we call Africa our second Home. KiKUU has independently created a cross-border e-commerce trading platform and is committed to helping global businesses to develop B2C services in Africa through serving the end user customers directly. With the help of Mobile penetration and internet (4G) user growth, using our own developed K-PAY Payment system, we can serve our customers in Africa with confidence.</p> <p>Taking advantage of our logistics operations in nine countries: Ghana, Uganda, Tanzania, Cameroon, Congo (Kinshasa), Nigeria, Côte d'Ivoire, Senegal, Congo (Brazzaville), We are the first e-commerce company in Africa to deploy our core system from online order to customer delivery.</p> <img src="https://global2019-static-cdn.kikuu.com/kikuu/mall/pc/static/img/bitmap.dfd130da.png" alt="Bit Map"> <h2>The KiKUU Team</h2> <p>We work hard to connect China with Africa by offering them online shopping experience and best customer services. Our Team is from leading e-commerce industry including Alibaba, JD.com, KCB Bank Group, etc.</p> <p>KiKUU will always strive to recruit and develop the best talents in China and Africa.</p> <img src="https://global2019-static-cdn.kikuu.com/kikuu/mall/pc/static/img/team.3b836c0b.png" alt="Team"> <h2>Mission &amp; Values</h2> <p>Mission: We want to be the preferred e-commerce platform in Africa<br>
+    Vision: We want to make China – Africa trade easier</p> <p>KiKUU's core values:<br>
+    Customer services, innovative products, affordable prices, Speedy Delivery, Teamwork</p> <p>KiKUU Advantages</p> <br> <h3>1. Affordable Prices</h3> <p class="paragraph">Our products are directly sourced from suppliers in China. This gives us an advantage of negotiating prices of quality products.</p> <h3>2. Quality Products</h3> <p class="paragraph">We always choose the suppliers with a capacity of producing high-quality products. We strive to offer the latest fashion and trends in all products we offer.</p> <h3>3. Unbeatable Shipping Fees</h3> <p class="paragraph">We have partnered with a leading logistics company in Guangzhou, and through our own logistics company in the countries, we operate enable our customers to save on delivery fees.</p> <h3>4. Customer Services</h3> <p class="paragraph">We have set up online and offline customers services team in all countries we operate that offer personalized services to our customers.</p></div>
+
+
+
+     <div ng-if="UserInfo.approvedTermsAndConditions || !UserInfo.isAuthenticated">
+	<ncy-breadcrumb></ncy-breadcrumb>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<form name="tandc" ng-submit="approveTandC()">
+				<div class="panel panel-default" style="margin-top:20px;">
+					<div class="panel-body" style="max-height:600px; overflow-y:scroll; background-color:white;">
+						<div style="text-align:center;">
+							<h1>Terms and Conditions</h1>
+							<p>
+								 <h3>1. Affordable Prices</h3> <p class="paragraph">Our products are directly sourced from suppliers in China. This gives us an advantage of negotiating prices of quality products.</p> <h3>2. Quality Products</h3> <p class="paragraph">We always choose the suppliers with a capacity of producing high-quality products. We strive to offer the latest fashion and trends in all products we offer.</p> <h3>3. Unbeatable Shipping Fees</h3> <p class="paragraph">We have partnered with a leading logistics company in Guangzhou, and through our own logistics company in the countries, we operate enable our customers to save on delivery fees.</p> <h3>4. Customer Services</h3> <p class="paragraph">We have set up online and offline customers services team in all countries we operate that offer personalized services to our customers.</p></div>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div style="text-align:center;" ng-if="settings.Authentication.RequireTermsAndConditions && !UserInfo.approvedTermsAndConditions && UserInfo.isAuthenticated">
+					<button style="margin:20px;" class="btn btn-primary" type="submit">Agree to Terms and Conditions</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

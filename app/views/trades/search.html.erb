@@ -1,0 +1,47 @@
+<li class="nav-item dropdown btn-primary mb-5 has text-dark">
+        <strong class="nav-link dropdown-toggle has text-white pl-5 mr-5" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search by category</strong>
+        <div class="dropdown-menu has text-center" aria-labelledby="dropdown01">
+    
+       <div class="mr-md-12">
+       <div class="card">
+       <div class="card-header">
+          Categories
+        </div>
+        <ul class="list-group has text-left bg-dark">
+
+        <% @categories.each do |category| %>
+
+         <li>
+          <%= link_to category.category, trades_path(:cate => category.id), class: "has text-white" %>
+
+         <span class="badge badge-primary badge-pill has text-dark bg-warning"><%= category.trades.count %></span>
+         </li>  
+        <% end %>
+        </ul></li>
+        </div>
+        </div></div></div>
+
+
+  <div class="pl-5 ml-5">
+     <%= will_paginate @trades, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+<div class="container-fluid">
+<div class="row mb-5 pb-5">
+	 <div class="row">
+<div class="col-md-14">
+
+
+
+<% if @trades.any? %>
+
+   <h3 class="ml-5 mb-1">Search Results</h3><hr />
+   <%= render @trades %>
+
+<% else %>
+
+  <p><h3 class="ml-5 mb-1">Search Results</h3><hr /> <a   class="has-text-center text-white mt-4 btn bg-danger ml-5"  >Sorry!!! Nothing matches your search</a></p>
+  <p class="ml-5">Check if all words are spelled correctly</p>
+  <p class="ml-5 mb-5">Or search again by category</p>
+  <% end %>
+</div></div>
+</div></div>

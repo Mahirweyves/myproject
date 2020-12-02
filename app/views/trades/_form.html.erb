@@ -1,0 +1,83 @@
+ <div class="container-fluid ml-5">
+  <div class="card"><div class="row has text-warning">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="card-body">
+  <%= simple_form_for(@trade) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <% if @trade.errors.any? %>
+      <div id="error_explanation", class="btn btn-sm btn-danger mt-3 mb-5">
+       <h2><%= pluralize(trade.errors.count, "Error") %>
+prevented this trade from being saved:</h2>
+        <ul>
+          <% @trade.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= f.label :title %>
+    <div class="field">
+    <%= f.text_field :title, maxlength: 100, placeholder: 'Product name', class:'form-control',required: true, autofocus: true, minlength: 100 %><br>
+    </div>  
+    
+    <%= f.label :address %>
+    <div class="field">
+    <%= f.text_field :address, maxlength: 100, placeholder: 'Road number/name, House number/name ', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    </div>
+
+
+     <%= f.label :company_name %>
+    <div class="field">
+    <%= f.text_field :company_name, maxlength: 100, placeholder: 'Company name/ Username', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    </div> 
+     
+    
+     <%= f.label :telephone %>
+    <div class="field">
+    <%= f.text_field :telephone, maxlength: 100, placeholder: 'telephone', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    </div> 
+
+
+     <%= f.label :Website %>
+    <div class="field">
+    <%= f.text_field :link, maxlength: 100, placeholder: 'Please start with http:/.....', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    </div> 
+
+    
+    <%= f.label :description %>
+      <div class="field">
+      <%= f.text_area :description, placeholder: 'Add everything your clients needs to know!', class:'form-control',required: true, autofocus: true,autofocus: true, input_html: { class: "textarea" }, wrapper: false, label_html: { class: "label" } %><br>
+     </div>
+
+    
+     <%= f.label :price %> <i></i>
+    <div class="field">    <%= f.text_field :price, maxlength: 100, placeholder: 'Price', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    </div>
+
+
+       <%= f.label :category %>
+    <div class="field">
+     <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]}, class:'form-control', required: true, autofocus: true, minlength: 100 %><br>
+    </div>    
+    
+      
+    <div class="field mt-5">
+      <div class="control">
+        <%= f.input :images, as: :file,  input_html: { multiple: true, direct_upload: true }, label: false, wrapper: false %>
+      </div>
+    </div>
+
+    <br>
+    <div class="text-center">
+      <%= f.submit "Save Product", class: "btn     btn-success mt3 mb-2 mb-5" %>
+      <%= link_to "Back", trades_path, class:" btn btn-primary mb-2 ml-5 mb-5" %>
+
+      <p>By creating new product you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p></div>
+<% end %>
+    </div>
+</div></div>
+  </div>
+</div> 
