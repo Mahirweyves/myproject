@@ -1,26 +1,25 @@
 <div class="container-fluid pb-5">
   <div>
-    <div class="border col-md-10 pr-0">
+    <div class="border col-md-8 pr-0">
 
   <div class="card-image mb-5 pb-5 pl-3">
     <figure class="image is-square">
-      <div style="width:400px; height:130px">
-       <%=link_to image_tag(trade.images.first.variant(resize: "250x250!>")), trade %>
+      <div style="width:400px; height:80px">
+      <%=link_to image_tag(trade.images.first.variant(resize: "250x210!>")), trade %>
       </div>
     </figure>
     
   </div>
   <div class="card-content">
     <h4 class="pt1 title is-5 pt-3 text-center"><%=link_to trade.title, trade, class: "text-warning"%></h4>
-    <p class="pv1 has text-white has text-center"><%= truncate(trade.description, length: 30) %></p>
+    <p class="pv1 has text-white ml-5"><%= truncate(trade.description, length: 30) %></p>
     
     <div class="media pt3">
-      <div class="media-left pt3">
-              </div>
+      <div class="media-left pt3"> </div>
       <div class="media-content">
-        <strong><p class="has-text-weight-bold ml-5 mb0 has text-warning">Posted by: <%= trade.company_name %></p></strong>
-        <strong><p class="has-text-weight-bold ml-4 mb0 has text-warning lead">price: <%= trade.price %></p></strong>
-       <strong> <p class="is-italic mb0 has text-primary mr-md-auto"><time>posted <%= time_ago_in_words(trade.created_at) %> ago</time></p></strong>
+        <!--<strong><p class="has-text-weight-bold ml-4 mb0 has text-warning lead">Posted by: <%= trade.company_name %></p></strong>-->
+        <strong><p class="has-text-weight-bold ml-4 mb0 has text-warning">price: <%= trade.price %></p></strong>
+       <strong><p class="is-italic mb0 has text-primary mr-md-auto"><time>posted <%= time_ago_in_words(trade.created_at) %> ago</time></p></strong>
        </div>
       </div>
     </div>

@@ -1,14 +1,27 @@
 <footer>
-<div class="footer navbar-fixed-bottom page-wrap-footer font-small blue pt-6 text-center navbar-fixed-bottom" >
+<div class="footer navbar-fixed-bottom page-wrap-footer font-small blue pt-6 text-center navbar-fixed-bottom " >  
 
-  <div id="push"></div>
 <footer class="footer navbar-fixed-bottom page-wrap-footer font-small blue pt-6 text-center fixed" >
+ 
+ 
+  <div class="row footer-bottom mt-5 pt-5 ml-3 has text-warning">
+  	<a class="has text-primary" href="/trades/terms_and_conditions">-Terms and conditions</a>/
+  	<a class="has text-primary" href="/trades/privacy_policy">-Privacy Policy</a>
+    </br>
 
+    <p class="mr-md-auto">
+            <%= social_share_button_tag(@trade, 'data-twitter-title' => 'Title for Twitter') %>
+    </p>
 
-   
-  <div class="footer-bottom mb-5 has text-warning">
-    Copyright &copy; 2020 tiipoff.com   |  Designed by Yves Mahirwe 
+  	<p class="ml-md-auto"> 
+    Copyright &copy; 2020 Notify.rw | Designed by Yves Mahirwe </p>
+
+    
+    <p class="ml-md-auto">
+            <%= social_share_button_tag(@trade, 'data-twitter-title' => 'Title for Twitter') %>
+    </p>
   </div>
+  
 </div>
 
 </footer>

@@ -1,7 +1,7 @@
 class TradesController < ApplicationController
   before_action :set_trade, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-
+  before_action :authenticate_user!, except: [:index, :show, :terms_and_conditions, :privacy_policy]
+  
   # GET /trades
   # GET /trades.json
   def index
@@ -44,7 +44,7 @@ class TradesController < ApplicationController
     # POST /trades.json
      def create
       @trade = current_user.trades.build(trade_params)
-
+      @categories = Category.all
       respond_to do |format|
         if @trade.save
           format.html { redirect_to @trade, notice: 'Product was successfully created.' }
@@ -52,7 +52,7 @@ class TradesController < ApplicationController
         else
           format.html { render :new }
           format.json { render json: @trade.errors, status: :unprocessable_entity }
-          @categories = Category.all
+          
         end
       end
     end

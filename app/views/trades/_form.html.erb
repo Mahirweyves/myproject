@@ -7,7 +7,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <% if @trade.errors.any? %>
-      <div id="error_explanation", class="btn btn-sm btn-danger mt-3 mb-5">
+      <div id="error_explanation", class="btn btn-sm btn-danger mt-3 mb-3">
        <h2><%= pluralize(trade.errors.count, "Error") %>
 prevented this trade from being saved:</h2>
         <ul>
@@ -18,20 +18,20 @@ prevented this trade from being saved:</h2>
       </div>
     <% end %>
     
-    <%= f.label :title %>
+    <%= f.label :title %> 
     <div class="field">
     <%= f.text_field :title, maxlength: 100, placeholder: 'Product name', class:'form-control',required: true, autofocus: true, minlength: 100 %><br>
     </div>  
     
-    <%= f.label :address %>
+    <%= f.label :address %>  <i class="text-white">( You can type number/name of the road , Sector, House number/name )</i>
     <div class="field">
-    <%= f.text_field :address, maxlength: 100, placeholder: 'Road number/name, House number/name ', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    <%= f.text_field :address, maxlength: 100, placeholder: 'Fill in here ', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
     </div>
 
 
      <%= f.label :company_name %>
     <div class="field">
-    <%= f.text_field :company_name, maxlength: 100, placeholder: 'Company name/ Username', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    <%= f.text_field :company_name, maxlength: 100, placeholder: 'Company name', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
     </div> 
      
     
@@ -41,9 +41,9 @@ prevented this trade from being saved:</h2>
     </div> 
 
 
-     <%= f.label :Website %>
+     <%= f.label :Website_link %> <i class="text-white">( EXAMPLE: http: //www.website.com)</i>
     <div class="field">
-    <%= f.text_field :link, maxlength: 100, placeholder: 'Please start with http:/.....', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
+    <%= f.text_field :link, maxlength: 100, placeholder: 'leave it blank if you dont have one.', class:'form-control',required: true, autofocus: true, autocomplete: "off", minlength: 100 %><br>
     </div> 
 
     
@@ -60,22 +60,26 @@ prevented this trade from being saved:</h2>
 
        <%= f.label :category %>
     <div class="field">
-     <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]}, class:'form-control', required: true, autofocus: true, minlength: 100 %><br>
+     <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]}, required: true, autofocus: true, minlength: 100 %><br>
     </div>    
     
       
     <div class="field mt-5">
       <div class="control">
-        <%= f.input :images, as: :file,  input_html: { multiple: true, direct_upload: true }, label: false, wrapper: false %>
+        <%= f.input :images, as: :file, hint: 'Each image uploaded must be less than 2 megabytes', input_html: { multiple: true, direct_upload: true }, label: false, wrapper: false %>
       </div>
     </div>
 
     <br>
     <div class="text-center">
-      <%= f.submit "Save Product", class: "btn     btn-success mt3 mb-2 mb-5" %>
+      <%= f.submit "Save Product", class: "btn btn-success mb-5" %>
       <%= link_to "Back", trades_path, class:" btn btn-primary mb-2 ml-5 mb-5" %>
-
-      <p>By creating new product you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p></div>
+      <div class="checkbox">
+    <label>
+      <input type="checkbox" check="check" value="remember-me"> 
+      By creating new product you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>
+    </label></div>
+     </div>
 <% end %>
     </div>
 </div></div>

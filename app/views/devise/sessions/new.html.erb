@@ -1,7 +1,10 @@
-<div class="container mb-5">
+<div class="container mb-5 mt-5 pt-4 col-md-6">
+  <div class="card"><div class="row has text-warning">
+  
 <section class="form-auth text-align-left">
   <h2>Welcome back!!! We love to have you back</h2>
   <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="card-body">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
  <%= devise_error_messages! %>
 
@@ -29,4 +32,4 @@
 </div>
 
 </main>
-
+</div></div>

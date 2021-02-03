@@ -1,17 +1,17 @@
 <%= yield (:body_class) %>
     <% if flash[:notice] %>
-      <div class="btn btn-sm btn-success notification is-success global-notification mt-3 mb-3">
+      <div class="btn btn-sm btn-success notification is-success global-notification list-group mt-4 pt-3">
         <p class="notice"><%= notice %></p>
       </div>
     <% end %>    
 
     <% if flash[:alert] %>
-    <div class="btn btn-sm btn-danger notification is-danger global-notification">
+    <div class="btn btn-sm btn-danger notification is-danger global-notification list-group">
       <p class="alert"><%= alert %></p>
     </div>
     <% end %>
  
-        <li class="nav-item dropdown btn-primary mt-4 has text-dark">
+        <li class="nav-item dropdown btn-primary mt-3 has text-dark">
         <strong class="nav-link dropdown-toggle has text-white" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search by category</strong>
         <div class="dropdown-menu has text-center" aria-labelledby="dropdown01">
     
@@ -20,10 +20,10 @@
        <div class="card-header">
           Categories
         </div>
-        <ul class="list-group has text-left bg-dark">
+        <ul class="list-group has text-left bg-primary">
 
         <% @categories.each do |category| %>
-
+ 
          <li>
           <%= link_to category.category, trades_path(:cate => category.id), class: "has text-white" %>
 
@@ -38,8 +38,8 @@
 <main role="main">
 
   <div class="bg-light">
-  <div class="has text-center pl-5 ml-5">    
-  <div class="container ml-md-10 ml-5 pl-5">
+  <div class="mr-md-auto">    
+  <div class="container ml-md-10">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,13 +48,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-     <%= image_tag('pic1.png') %>
+     <%= image_tag('pic1.png', width:700, height:300) %>
     </div>
     <div class="carousel-item">
-      <%= image_tag('pic2.png') %>
+      <%= image_tag('pic2.png', width:700, height:300) %>
     </div>
     <div class="carousel-item">
-     <%= image_tag('pic3.png') %>
+     <%= image_tag('pic3.png', width:700, height:300) %>
     </div>
 </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -69,7 +69,7 @@
   </div>
    
  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron col-sm-12 text-center btn-default">
+  <div class="jumbotron col-sm-12 text-center">
       <h3 class="title is-1">Enjoy our free trials</h3>
 
     <p class="subtitle is-5">Looking to get more clients for your products!</p>
@@ -77,25 +77,19 @@
   </div>
 
 
-   <div class="pl-5 ml-5">
-<%= will_paginate @trades, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
-  </div>
-
-
   <div class="container-fluid">
   <div class="row">
-  <div class="col-md-14">
-  <div class="row mb-5 pt-4 pb-4 mr-5">
+  <div class="row mb-3 pt-4 pb-4 mr-1">
   <% @trades.each do |trade| %>
    <div class="row">
-      <div style="width:30px; height:100px;">
+      <div style="width:25px;">
       </div>
    </div>
-  <div class="row ml-1">
+  <div class="row ml-3">
     <%= render trade, trade: trade %>
   </div>
   <% end %>
-  </div></div>
+  </div>
 
  
     </div></div></div></div>
